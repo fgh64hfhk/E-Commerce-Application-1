@@ -54,11 +54,9 @@ public class UserServiceImpl implements UserService {
 		Optional<User> getUser = repository.findById(userId);
 		if (getUser.isPresent()) {
 			User updatedUser = getUser.get();
-			updatedUser.setAddresses(user.getAddresses());
 			updatedUser.setCoupons(user.getCoupons());
 			updatedUser.setEmail(user.getEmail());
-			updatedUser.setFirstName(user.getFirstName());
-			updatedUser.setLastName(user.getLastName());
+			updatedUser.setName(user.getName());
 			updatedUser.setMobileNumber(user.getMobileNumber());
 //			updatedUser.setPassword(null);
 //			updatedUser.setRoles(null);

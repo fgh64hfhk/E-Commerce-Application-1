@@ -1,13 +1,11 @@
 package com.app.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +13,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "addresses")
+@Table(name = "address")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Address {
@@ -24,13 +22,13 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long addressId;
 
-	private String country;
-	private String city;
-	private String distrcit;
-	private String street;
-	private String buildingName;
+	private String address;
 	private String pincode;
 	
-	@ManyToMany(mappedBy = "addresses")
-	private List<User> users = new ArrayList<>();
+	private String deliveryName;
+	private String deliveryTel;
+	
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 }
