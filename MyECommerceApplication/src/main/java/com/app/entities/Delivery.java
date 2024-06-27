@@ -6,6 +6,7 @@ import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,6 +32,6 @@ public class Delivery {
 	
 	private Integer deliveryPrice; 
 
-	@OneToMany(mappedBy = "delivery")
+	@OneToMany(mappedBy = "delivery", fetch = FetchType.LAZY)
 	private List<Cart> cart = new ArrayList<>();
 }

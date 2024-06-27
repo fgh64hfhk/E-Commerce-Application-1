@@ -29,7 +29,7 @@ public class CartDto {
 		this.id = cart.getCartId();
 		this.userEmail = cart.getUser().getEmail();
 		this.items = cart.getCartItems().stream()
-				.map(CartItemDto::new)
+				.map(t -> new CartItemDto(t))
 				.collect(Collectors.toList());
 		this.totalPrice = cart.getCartItems().stream()
 				.mapToDouble(cartItem -> cartItem.getProductVariant().getProduct().getPrice() * cartItem.getQuantity())

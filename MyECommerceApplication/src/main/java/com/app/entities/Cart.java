@@ -3,7 +3,13 @@ package com.app.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,6 +27,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "cartId")
 public class Cart {
 
 	@Id
@@ -29,14 +36,16 @@ public class Cart {
 
 	@OneToOne
 	@JoinColumn(name = "user_id")
+	@JsonBackReference
 	private User user;
 
 	@OneToMany(mappedBy = "cart")
+	@JsonManagedReference
 	private List<CartItem> cartItems = new ArrayList<>();
 
 	private Double totalPrice = 0.0;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "delivery_id")
 	private Delivery delivery;
 }
