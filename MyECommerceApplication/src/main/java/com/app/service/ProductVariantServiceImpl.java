@@ -82,6 +82,8 @@ public class ProductVariantServiceImpl implements ProductVariantService {
 		} else {
 			// 確定要修改此變體
 			ProductVariant returnProductVariant = setImageWithBase64(productVariant, file);
+			
+			// TODO 更新到所有選取此商品變體的購物車明細
 
 			// 更新庫存數量並調整商品總庫存數量
 			Integer originalInventory = getProductVariant.getInventory();

@@ -52,6 +52,21 @@ public class UserController {
 		}
 		return entity;
 	}
+	
+	// 一般使用者
+	// 查 -->
+	@GetMapping("/user/{userEmail}")
+	public ResponseEntity<User> getUserByUserEmail(@PathVariable String userEmail) {
+		
+		ResponseEntity<User> entity;
+		User user = service.getUserByEmail(userEmail);
+		if (user != null) {
+			entity = new ResponseEntity<User>(user, HttpStatus.OK);
+		} else {
+			entity = new ResponseEntity<User>(user, HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
 
 	// 一般使用者
 	// 修

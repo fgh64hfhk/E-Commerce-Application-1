@@ -40,7 +40,7 @@ public class Order {
 	
 	private Double totalAmount;
 	
-//	private String orderStatus;
+	private String orderStatus;
 	
 	// 優惠券
 	@ManyToOne

@@ -45,6 +45,23 @@ public class ProductController {
 
 		return entity;
 	}
+	
+	// 增 --> 根據商品種類的名稱新增商品
+	@PostMapping(path = "/{categoryName}/products", consumes = { "multipart/form-data" })
+	public ResponseEntity<List<Product>> createProductsByCategoryName(@PathVariable String categoryName,
+			@RequestPart("products") List<Product> products,
+			@RequestPart(value = "image", required = false) List<MultipartFile> files) {
+
+		ResponseEntity<List<Product>> entity = null;
+
+//		if (service.addProductByCategory(categoryName, product, files)) {
+//			entity = new ResponseEntity<Product>(product, HttpStatus.CREATED);
+//		} else {
+//			entity = new ResponseEntity<Product>(product, HttpStatus.BAD_REQUEST);
+//		}
+
+		return entity;
+	}
 
 	// 查 --> 根據商品編號查找商品
 	@GetMapping("/product/{productId}")

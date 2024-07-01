@@ -43,4 +43,17 @@ public class CartController {
 		}
 		return entity;
 	}
+	
+	// 查詢
+	@GetMapping("/cart/delivery/price/{userEmail}")
+	public ResponseEntity<Integer> findDeliveryPriceByUserEmail(@PathVariable String userEmail) {
+		ResponseEntity<Integer> entity = null;
+		Integer price = cartService.findDeliveryPriceByUserEmail(userEmail);
+		if (price > -1) {
+			entity = new ResponseEntity<Integer>(price, HttpStatus.OK);
+		} else {
+			entity = new ResponseEntity<Integer>(price, HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
 }

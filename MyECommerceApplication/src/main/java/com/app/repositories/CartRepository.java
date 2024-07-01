@@ -18,6 +18,6 @@ public interface CartRepository extends JpaRepository<Cart, Long>{
 	Integer findTotalPriceByUserEmail(@Param("email") String email);
 	
 	// Find delivery price by user email
-//	@Query("SELECT c.delivery.deliveryPrice FROM Cart c WHERE c.user.email = :email")
-//	Integer findDeliveryPriceByUserEmail(@Param("email") String email);
+	@Query("SELECT c.delivery.deliveryPrice FROM Cart c WHERE c.user.email = :email")
+	Integer findDeliveryPriceByUserEmail(@Param("email") String email);
 }

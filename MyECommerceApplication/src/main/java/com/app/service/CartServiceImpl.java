@@ -30,8 +30,8 @@ public class CartServiceImpl implements CartService {
 
 	@Override
 	public Integer findDeliveryPriceByUserEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		Integer price = cartRepository.findDeliveryPriceByUserEmail(email);
+		return price;
 	}
 
 }

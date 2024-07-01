@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.app.entities.Address;
 import com.app.entities.Cart;
 import com.app.entities.CartItem;
 import com.app.entities.Delivery;
@@ -14,6 +15,7 @@ import com.app.entities.DeliveryType;
 import com.app.entities.Product;
 import com.app.entities.ProductVariant;
 import com.app.entities.User;
+import com.app.repositories.AddressRepository;
 import com.app.repositories.CartItemRepository;
 import com.app.repositories.CartRepository;
 import com.app.repositories.DeliveryRepository;
@@ -29,6 +31,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	AddressRepository addressRepository;
 
 	@Autowired
 	CartRepository cartRepository;
@@ -38,15 +43,19 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	CartItemRepository cartItemRepository;
-	
+
 	@Autowired
 	ProductRepository productRepository;
-	
+
 	@Autowired
 	ProductVariantRepository productVariantRepository;
 
 	@Override
 	public boolean addUser(User user) {
+		
+		// 預設配送地址
+		Address address = new Address();
+		addressRepository.save(address);
 
 		// 預設購物車列表，用於配送的初始
 		List<Cart> carts = new ArrayList<>();
@@ -68,7 +77,6 @@ public class UserServiceImpl implements UserService {
 		Product product = new Product();
 		product.setName("Product001");
 		product.setPrice(550.0);
-		productRepository.save(product);
 
 		List<ProductVariant> productVariants = new ArrayList<>();
 		ProductVariant productVariant = new ProductVariant(1L, "白", "M", "001-白-M", 50, "image001", product);
@@ -82,7 +90,11 @@ public class UserServiceImpl implements UserService {
 		ProductVariant productVariant3 = new ProductVariant(3L, "白", "XL", "001-白-XL", 50, "image003", product);
 		productVariants.add(productVariant3);
 		CartItem cartItem3 = new CartItem(3L, cart, productVariant3, 15);
-		
+
+		Integer totalQuantity = productVariants.stream().mapToInt(pv -> pv.getInventory()).sum();
+		product.setTotalQuantity(totalQuantity);
+		productRepository.save(product);
+
 		productVariantRepository.saveAll(productVariants);
 
 		cartItems.add(cartItem);
@@ -99,6 +111,7 @@ public class UserServiceImpl implements UserService {
 		cartRepository.save(cart);
 
 		user.setCart(cart);
+		user.setAddress(address);
 		User savedUser = userRepository.save(user);
 
 		if (savedUser != null) {
@@ -157,6 +170,12 @@ public class UserServiceImpl implements UserService {
 		} else {
 			return null;
 		}
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		User getUser = userRepository.findByEmail(email);
+		return getUser;
 	}
 
 }

@@ -10,9 +10,12 @@ import com.app.entities.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	@EntityGraph(attributePaths = { "roles", "addresses", "coupons", "payments" })
+	@EntityGraph(attributePaths = { "roles", "address", "coupons", "payments" })
 	Optional<User> findById(Long id);
 	
-	@EntityGraph(attributePaths = { "roles", "addresses", "coupons", "payments" })
+	@EntityGraph(attributePaths = { "roles", "address", "coupons", "payments" })
 	List<User> findAll();
+	
+	@EntityGraph(attributePaths = { "roles", "address", "coupons", "payments" })
+	User findByEmail(String email);
 }
