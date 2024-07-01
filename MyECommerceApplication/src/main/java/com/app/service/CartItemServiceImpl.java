@@ -175,6 +175,7 @@ public class CartItemServiceImpl implements CartItemService {
 				.orElseThrow(() -> new RuntimeException("Product variant not found with SKU: " + sku)).getQuantity();
 
 		// 移除指定SKU的购物车项
+		CartItem ci = cartItems.stream().filter(cartItem -> cartItem.getProductVariant().equals(productVariant)).findFirst().get();
 		cartItems.removeIf(cartItem -> cartItem.getProductVariant().equals(productVariant));
 
 		// 更新用户购物车
@@ -188,6 +189,7 @@ public class CartItemServiceImpl implements CartItemService {
 		user.setCart(cart);
 
 		// 保存更新后的数据
+		cartItemRepository.delete(ci);
 		productVariantRepository.save(productVariant);
 		userRepository.save(user);
 
