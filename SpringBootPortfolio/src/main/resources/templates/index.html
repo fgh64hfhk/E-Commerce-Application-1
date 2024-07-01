@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>我的投資組合</title>
+        <!-- head -->
+        <div th:replace="include/header :: header-head"></div>
+    </head>
+    <body>
+        <div id="layout">
+            <!-- Menu toggle -->
+            <div th:replace="include/toggle :: header-toggle"></div>
+            
+            <!-- Menu -->
+            <div th:replace="include/menu :: header-menu"></div>
+            
+            <div id="main">
+                <div class="header">
+                    <h1>我的投資組合</h1>
+                    <h2>Portfolio Tables</h2>
+                </div>
+                
+                <img src="/portfolio/images/portfolio.png" width="100%">
+                
+            </div>
+        </div>
+        <!-- Foot -->
+        <div th:replace="include/footer :: header-foot"></div>
+    </body>
+</html>
