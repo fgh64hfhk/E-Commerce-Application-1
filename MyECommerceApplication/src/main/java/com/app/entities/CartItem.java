@@ -35,4 +35,11 @@ public class CartItem {
 	
 	private Integer quantity;
 
+	public CartItem(Cart cart, ProductVariant productVariant, Integer quantity) {
+		super();
+		this.cart = cart;
+		this.productVariant = productVariant;
+		this.quantity = quantity;
+	}
+
 }

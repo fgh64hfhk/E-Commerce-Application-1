@@ -81,15 +81,15 @@ public class UserServiceImpl implements UserService {
 		List<ProductVariant> productVariants = new ArrayList<>();
 		ProductVariant productVariant = new ProductVariant(1L, "白", "M", "001-白-M", 50, "image001", product);
 		productVariants.add(productVariant);
-		CartItem cartItem = new CartItem(1L, cart, productVariant, 5);
+		CartItem cartItem = new CartItem(cart, productVariant, 5);
 
 		ProductVariant productVariant2 = new ProductVariant(2L, "白", "L", "001-白-L", 50, "image002", product);
 		productVariants.add(productVariant2);
-		CartItem cartItem2 = new CartItem(2L, cart, productVariant2, 10);
+		CartItem cartItem2 = new CartItem(cart, productVariant2, 10);
 
 		ProductVariant productVariant3 = new ProductVariant(3L, "白", "XL", "001-白-XL", 50, "image003", product);
 		productVariants.add(productVariant3);
-		CartItem cartItem3 = new CartItem(3L, cart, productVariant3, 15);
+		CartItem cartItem3 = new CartItem(cart, productVariant3, 15);
 
 		Integer totalQuantity = productVariants.stream().mapToInt(pv -> pv.getInventory()).sum();
 		product.setTotalQuantity(totalQuantity);

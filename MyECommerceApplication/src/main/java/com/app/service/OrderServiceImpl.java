@@ -4,8 +4,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.app.entities.Cart;
@@ -118,15 +123,24 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public OrderDto getOrderByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<OrderDto> getOrdersByEmail(String email) {
+		List<OrderDto> orderDtos = orderRepository.findOrderByUserEmail(email);
+		return orderDtos;
 	}
 
 	@Override
 	public List<OrderDto> getAllOrders(Integer pageNumber, Integer pageSize, String sortBy, String sortOrder) {
-		// TODO Auto-generated method stub
-		return null;
+		// 製作排序物件
+		Sort sort = sortOrder.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
+		// 製作分頁物件
+		Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
+		Page<Order> pageOrders = orderRepository.findAll(pageable);
+		List<Order> orders = pageOrders.getContent();
+		List<OrderDto> orderDtos = orders.stream().map(order -> new OrderDto(order)).collect(Collectors.toList());
+		if (orderDtos.size() == 0) {
+			throw new RuntimeException("No orders placed yet by the users");
+		}
+		return orderDtos;
 	}
 
 }

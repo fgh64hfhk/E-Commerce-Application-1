@@ -8,7 +8,7 @@ public interface OrderService {
 	
 	OrderDto placeOrder(String email, String paymentMethod);
 
-	OrderDto getOrderByEmail(String email);
+	List<OrderDto> getOrdersByEmail(String email);
 
 	List<OrderDto> getAllOrders(Integer pageNumber, Integer pageSize, String sortBy, String sortOrder);
 }
