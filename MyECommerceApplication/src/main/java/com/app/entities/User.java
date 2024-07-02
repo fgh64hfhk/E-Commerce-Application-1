@@ -36,7 +36,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
 	
-	private String name;
+	private String username;
 	
 	@Size(min = 10, max = 10, message = "Mobile Number must be exactly 10 digits long")
 	@Pattern(regexp = "^\\d{10}$", message = "Mobile Number must contain only Numbers")
@@ -78,13 +78,13 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(email, other.email) && Objects.equals(name, other.name)
+		return Objects.equals(email, other.email) && Objects.equals(username, other.username)
 				&& Objects.equals(userId, other.userId);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(email, name, userId);
+		return Objects.hash(email, username, userId);
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.app.entities.Address;
 import com.app.entities.Coupon;
 import com.app.entities.Order;
 
@@ -27,6 +28,8 @@ public class OrderDto {
 	private Coupon applicableCoupon;
 	
 	private List<OrderItemDto> items;
+	
+	private Address address; 
 	
 	public OrderDto(Order order) {
 		this.email = order.getEmail();

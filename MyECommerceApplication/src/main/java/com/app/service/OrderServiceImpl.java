@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.app.entities.Address;
 import com.app.entities.Cart;
 import com.app.entities.CartItem;
 import com.app.entities.Order;
@@ -23,6 +24,7 @@ import com.app.entities.User;
 import com.app.payloads.CartDto;
 import com.app.payloads.CartItemDto;
 import com.app.payloads.OrderDto;
+import com.app.repositories.AddressRepository;
 import com.app.repositories.CartItemRepository;
 import com.app.repositories.CartRepository;
 import com.app.repositories.OrderItemRepository;
@@ -36,6 +38,9 @@ import jakarta.transaction.Transactional;
 @Transactional
 public class OrderServiceImpl implements OrderService {
 
+	@Autowired
+	private AddressRepository addressRepository;
+	
 	@Autowired
 	private UserRepository userRepository;
 
@@ -59,6 +64,7 @@ public class OrderServiceImpl implements OrderService {
 	public OrderDto placeOrder(String email, String paymentMethod) {
 
 		User user = userRepository.findByEmail(email);
+		Address savedAddress = addressRepository.save(user.getAddress());
 
 		CartDto cartDto = cartRepository.findCartByUserEmail(email);
 		if (cartDto == null) {
@@ -118,8 +124,11 @@ public class OrderServiceImpl implements OrderService {
 		cartRepository.save(clearCart);
 		
 		savedOrder = orderRepository.save(savedOrder);
+		
+		OrderDto orderDto = new OrderDto(savedOrder);
+		orderDto.setAddress(savedAddress);
 
-		return new OrderDto(savedOrder);
+		return orderDto;
 	}
 
 	@Override
