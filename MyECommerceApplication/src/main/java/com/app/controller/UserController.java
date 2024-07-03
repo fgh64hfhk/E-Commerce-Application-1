@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,20 +23,6 @@ public class UserController {
 	// injection cart service
 	@Autowired
 	private UserService service;
-
-	// 增 --> 註冊頁面
-	@PostMapping("/user")
-	public ResponseEntity<User> createUser(@RequestBody User user) {
-
-		ResponseEntity<User> entity;
-		if (service.addUser(user)) {
-			entity = new ResponseEntity<User>(user, HttpStatus.CREATED);
-		} else {
-
-			entity = new ResponseEntity<User>(user, HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
 
 	// 一般使用者
 	// 查 -->

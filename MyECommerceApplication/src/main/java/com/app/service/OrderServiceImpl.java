@@ -63,7 +63,7 @@ public class OrderServiceImpl implements OrderService {
 	@Transactional(rollbackOn = Exception.class)
 	public OrderDto placeOrder(String email, String paymentMethod) {
 
-		User user = userRepository.findByEmail(email);
+		User user = userRepository.findByEmail(email).get();
 		Address savedAddress = addressRepository.save(user.getAddress());
 
 		CartDto cartDto = cartRepository.findCartByUserEmail(email);

@@ -86,5 +86,16 @@ public class User {
 	public int hashCode() {
 		return Objects.hash(email, username, userId);
 	}
+
+	public User(String username,
+			@Size(min = 10, max = 10, message = "Mobile Number must be exactly 10 digits long") @Pattern(regexp = "^\\d{10}$", message = "Mobile Number must contain only Numbers") String mobileNumber,
+			@Email String email, String password, Set<Role> roles) {
+		super();
+		this.username = username;
+		this.mobileNumber = mobileNumber;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
+	}
 	
 }

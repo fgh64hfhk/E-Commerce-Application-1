@@ -43,7 +43,7 @@ public class CartItemServiceImpl implements CartItemService {
 	@Override
 	public List<CartItemDto> addCartItemByUserEmail(String userEmail, String sku, Integer quantity) {
 		// 使用使用者的電子信箱查詢購物車主表
-		User user = userRepository.findByEmail(userEmail);
+		User user = userRepository.findByEmail(userEmail).get();
 		// 取得購物車主表
 		Cart cart = user.getCart();
 		// 取得購物車明細列表
@@ -145,7 +145,7 @@ public class CartItemServiceImpl implements CartItemService {
 	@Override
 	public List<CartItemDto> deleteCartItemBySkuAndUserEmail(String sku, String userEmail) {
 		// 检查user对象是否为null
-		User user = userRepository.findByEmail(userEmail);
+		User user = userRepository.findByEmail(userEmail).get();
 		if (user == null) {
 			throw new RuntimeException("User not found with email: " + userEmail);
 		}
