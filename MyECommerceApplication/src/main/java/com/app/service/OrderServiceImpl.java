@@ -61,9 +61,12 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	@Transactional(rollbackOn = Exception.class)
-	public OrderDto placeOrder(String email, String paymentMethod) {
+	public OrderDto placeOrder(String email, String paymentMethod, Address address) {
 
 		User user = userRepository.findByEmail(email).get();
+		
+		user.setAddress(address);
+		
 		Address savedAddress = addressRepository.save(user.getAddress());
 
 		CartDto cartDto = cartRepository.findCartByUserEmail(email);
@@ -81,12 +84,13 @@ public class OrderServiceImpl implements OrderService {
 
 		Payment payment = new Payment();
 		payment.setUser(user);
-		// paymentMethod
 		payment.setPaymentType(PaymentType.AfterPay);
 		payment = paymentRepository.save(payment);
 
 		user.setPayments(new HashSet<>());
 		user.getPayments().add(payment);
+		
+		userRepository.save(user);
 
 		Order savedOrder = orderRepository.save(order);
 
@@ -133,7 +137,7 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public List<OrderDto> getOrdersByEmail(String email) {
-		List<OrderDto> orderDtos = orderRepository.findOrderByUserEmail(email);
+		List<OrderDto> orderDtos = orderRepository.findOrdersByUserEmail(email);
 		return orderDtos;
 	}
 

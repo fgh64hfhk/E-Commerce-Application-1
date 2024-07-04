@@ -3,6 +3,7 @@ package com.app.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,15 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.payloads.CartDto;
 import com.app.service.CartService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 @RestController
 @RequestMapping("/api")
+@SecurityRequirement(name = "E-Commerce Application")
+@CrossOrigin
 public class CartController {
 
 	@Autowired
 	private CartService cartService;
 	
 	// 查詢
-	@GetMapping("/cart/{userEmail}")
+	@GetMapping("/public/user/{userEmail}/cart")
 	public ResponseEntity<CartDto> getCartByUserEmail(@PathVariable String userEmail) {
 		ResponseEntity<CartDto> entity = null;
 		CartDto cartDto = cartService.findCartByUserEmail(userEmail);
@@ -32,7 +37,7 @@ public class CartController {
 	}
 	
 	// 查詢
-	@GetMapping("/cart/price/{userEmail}")
+	@GetMapping("/public/user/{userEmail}/cart/price")
 	public ResponseEntity<Integer> getCartTotalPriceByUserEmail(@PathVariable String userEmail) {
 		ResponseEntity<Integer> entity = null;
 		Integer price = cartService.findTotalPriceByUserEmail(userEmail);
@@ -45,7 +50,7 @@ public class CartController {
 	}
 	
 	// 查詢
-	@GetMapping("/cart/delivery/price/{userEmail}")
+	@GetMapping("/public/user/{userEmail}/cart/delivery/price")
 	public ResponseEntity<Integer> findDeliveryPriceByUserEmail(@PathVariable String userEmail) {
 		ResponseEntity<Integer> entity = null;
 		Integer price = cartService.findDeliveryPriceByUserEmail(userEmail);

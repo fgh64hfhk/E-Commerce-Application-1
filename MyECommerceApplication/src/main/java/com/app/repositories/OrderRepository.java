@@ -13,7 +13,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
 	// 根據使用者電子信箱查詢訂單
 	@Query("SELECT new com.app.payloads.OrderDto(o) FROM Order o WHERE o.email = :email")
-	List<OrderDto> findOrderByUserEmail(@Param("email") String email);
+	List<OrderDto> findOrdersByUserEmail(@Param("email") String email);
 	
 	// 查詢所有的訂單
 	

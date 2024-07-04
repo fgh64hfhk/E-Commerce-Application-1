@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,14 +18,18 @@ import com.app.entities.CartItem;
 import com.app.payloads.CartItemDto;
 import com.app.service.CartItemService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 @RestController
 @RequestMapping("/api")
+@SecurityRequirement(name = "E-Commerce Application")
+@CrossOrigin
 public class CartItemController {
 
 	@Autowired
 	CartItemService cartItemService;
 	
-	@GetMapping("/cart/items/{userEmail}")
+	@GetMapping("/public/user/{userEmail}/cart/items")
 	public ResponseEntity<List<CartItemDto>> getAllCartItemsByUserEmail(@PathVariable("userEmail") String userEmail) {
 		ResponseEntity<List<CartItemDto>> entity = null;
 		List<CartItemDto> cartItemDtos = cartItemService.getAllCartItemsByUserEmail(userEmail);
@@ -36,7 +41,7 @@ public class CartItemController {
 		return entity;
 	}
 	
-	@PutMapping("/cart/item/{sku}/{userEmail}/quantity/{quantity}")
+	@PutMapping("/public/user/{userEmail}/cart/item/{sku}/quantity/{quantity}")
 	public ResponseEntity<CartItemDto> updateCartItemQuantityBySkuAndUserEmail(@PathVariable("sku") String sku, @PathVariable("userEmail") String userEmail, @PathVariable("quantity") Integer quantity) {
 		ResponseEntity<CartItemDto> entity;
 		CartItem cartItem = cartItemService.updateCartItemQuantityBySkuAndUserEmail(quantity, sku, userEmail);
@@ -46,7 +51,7 @@ public class CartItemController {
 		return entity;
 	}
 	
-	@PostMapping("/cart/item/{sku}/{userEmail}/quantity/{quantity}")
+	@PostMapping("/public/user/{userEmail}/cart/item/{sku}/quantity/{quantity}")
 	public ResponseEntity<List<CartItemDto>> addCartItemBySkuAndUserEmail(@PathVariable("sku") String sku, @PathVariable("userEmail") String userEmail, @PathVariable("quantity") Integer quantity) {
 		ResponseEntity<List<CartItemDto>> entity;
 		List<CartItemDto> cartItems = cartItemService.addCartItemByUserEmail(userEmail, sku, quantity);
@@ -56,7 +61,7 @@ public class CartItemController {
 		return entity;
 	}
 	
-	@DeleteMapping("/cart/item/{sku}/{userEmail}")
+	@DeleteMapping("/public/user/{userEmail}/cart/item/{sku}")
 	public ResponseEntity<List<CartItemDto>> deleteCartItemBySkuAndUserEmail(@PathVariable("sku") String sku, @PathVariable("userEmail") String userEmail) {
 		ResponseEntity<List<CartItemDto>> entity;
 		List<CartItemDto> cartItems = cartItemService.deleteCartItemBySkuAndUserEmail(sku, userEmail);

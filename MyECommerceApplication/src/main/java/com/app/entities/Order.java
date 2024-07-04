@@ -42,6 +42,8 @@ public class Order {
 	
 	private String orderStatus;
 	
+	private String address;
+	
 	// 優惠券
 	@ManyToOne
 	@JoinColumn(name = "coupon_id")

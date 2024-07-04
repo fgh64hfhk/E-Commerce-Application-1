@@ -14,8 +14,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data
 @Table(name = "address")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Address {
@@ -34,4 +34,11 @@ public class Address {
 	@JoinColumn(name = "user_id")
 	@JsonBackReference
 	private User user;
+	
+	public Address(AddressDto addressDto) {
+		this.address = addressDto.getAddress();
+		this.pincode = addressDto.getPincode();
+		this.deliveryName = addressDto.getDeliveryName();
+		this.deliveryTel = addressDto.getDeliveryTel();
+	}
 }

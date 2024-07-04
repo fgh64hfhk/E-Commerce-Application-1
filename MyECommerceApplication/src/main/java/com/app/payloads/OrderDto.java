@@ -23,7 +23,7 @@ public class OrderDto {
 	
 	private Double amount;
 	
-	private String stauts;
+	private String status;
 	
 	private Coupon applicableCoupon;
 	
@@ -35,7 +35,7 @@ public class OrderDto {
 		this.email = order.getEmail();
 		this.date = order.getOrderDate();
 		this.amount = order.getTotalAmount();
-		this.stauts = order.getOrderStatus();
+		this.status = order.getOrderStatus();
 		this.applicableCoupon = order.getCoupon();
 		this.items = order.getOrderItems().stream()
 				.map(oi -> new OrderItemDto(oi))

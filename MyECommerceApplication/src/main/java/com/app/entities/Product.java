@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+import com.app.payloads.ProductDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -74,5 +76,17 @@ public class Product {
 	public void removeProductVariant(ProductVariant productVariant) {
 		productVariants.remove(productVariant);
 		productVariant.setProduct(null);
+	}
+
+	public Product(ProductDto productDto) {
+		this.name = productDto.getName();
+		this.subcategory = productDto.getSubcategory();
+		this.brand = productDto.getBrand();
+		this.description = productDto.getDescription();
+		this.price = productDto.getPrice();
+		this.totalQuantity = productDto.getTotalQuantity();
+
+		this.productVariants = productDto.getProductList().stream().map(t -> new ProductVariant(t))
+				.collect(Collectors.toList());
 	}
 }

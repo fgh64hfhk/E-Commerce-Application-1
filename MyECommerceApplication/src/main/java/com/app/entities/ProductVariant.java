@@ -1,5 +1,9 @@
 package com.app.entities;
 
+import java.util.Map;
+import java.util.Set;
+
+import com.app.payloads.ProductVariantDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
@@ -50,4 +54,20 @@ public class ProductVariant {
 	@JsonBackReference
 	@ToString.Exclude
 	private Product product;
+	
+	public ProductVariant(ProductVariantDto productVariantDto) {
+		this.color = productVariantDto.getColor();
+		this.size = productVariantDto.getSize();
+		this.sku = productVariantDto.getSku();
+		this.inventory = productVariantDto.getInventory();
+		this.image = analysImageString(productVariantDto.getImage());
+	}
+	
+	private String analysImageString(Map<String, String> image) {
+		Set<String> keys = image.keySet();
+		if (keys.contains("normal type")) {
+			return new String(image.get("normal type"));
+		}
+		return "default_image";
+	}
 }

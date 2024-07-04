@@ -14,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +36,7 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/api")
 @SecurityRequirement(name = "E-Commerce Application")
+@CrossOrigin
 public class AuthController {
 
 	@Autowired
@@ -112,12 +114,18 @@ public class AuthController {
 	}
 
 	@PostMapping("/logout")
-	public String performLogout(Authentication authentication, HttpServletRequest request,
+	public ResponseEntity<Map<String, String>> performLogout(Authentication authentication, HttpServletRequest request,
 			HttpServletResponse response) {
-		// .. 執行登出操作
-		SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
-		logoutHandler.logout(request, response, authentication); // 呼叫登出處理器
-		return "redirect:/home"; // 登出後轉到首頁或其他頁面
+
+		try {
+			SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+			logoutHandler.logout(request, response, authentication); // 呼叫登出處理器
+			
+			return ResponseEntity.ok(Collections.singletonMap("message", "Logout successful"));
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body(Collections.singletonMap("error", "An error occurred during logout: " + e.getMessage()));
+		}
 	}
 
 }

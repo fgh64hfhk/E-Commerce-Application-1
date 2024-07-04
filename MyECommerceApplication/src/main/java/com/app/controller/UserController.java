@@ -1,10 +1,13 @@
 package com.app.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,88 +17,138 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.entities.User;
+import com.app.payloads.UserDto;
+import com.app.security.UserInfoConfig;
 import com.app.service.UserService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/api")
+@SecurityRequirement(name = "E-Commerce Application")
+@CrossOrigin
+@Tag(name = "User", description = "User management APIs")
 public class UserController {
 
-	// injection cart service
 	@Autowired
-	private UserService service;
+	private UserService userService;
 
-	// 一般使用者
-	// 查 -->
-	@GetMapping("/user/{userId}")
-	public ResponseEntity<User> getUserById(@PathVariable Long userId) {
-		User user = service.getUserById(userId);
-		ResponseEntity<User> entity;
-		if (user != null) {
-			entity = new ResponseEntity<User>(user, HttpStatus.OK);
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful operation", content = {
+			@Content(schema = @Schema(implementation = UserDto.class), mediaType = "application/json") }) })
+	@GetMapping("/public/user/{userId}")
+	public ResponseEntity<UserDto> getUserById(@PathVariable Long userId) {
+
+		// Extract user ID from JWT
+		String authenticatedUserEmail = ((UserInfoConfig) SecurityContextHolder.getContext().getAuthentication()
+				.getPrincipal()).getEmail();
+
+		User user = userService.getUserByEmail(authenticatedUserEmail);
+
+		if (!user.getUserId().equals(userId)) {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
 		} else {
-			entity = new ResponseEntity<User>(user, HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
-	
-	// 一般使用者
-	// 查 -->
-	@GetMapping("/user/{userEmail}")
-	public ResponseEntity<User> getUserByUserEmail(@PathVariable String userEmail) {
-		
-		ResponseEntity<User> entity;
-		User user = service.getUserByEmail(userEmail);
-		if (user != null) {
-			entity = new ResponseEntity<User>(user, HttpStatus.OK);
-		} else {
-			entity = new ResponseEntity<User>(user, HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
+			User returnUser = userService.getUserById(userId);
 
-	// 一般使用者
-	// 修
-	@PutMapping("/user/{userId}")
-	ResponseEntity<User> updateUserById(@PathVariable Long userId, @RequestBody User user) {
-		
-		User u = service.getUserById(userId);
-
-		ResponseEntity<User> entity;
-		if (u != null) {
-			user.setUserId(u.getUserId());
-			if (service.updateUserById(u.getUserId(), user)) {
-				entity = new ResponseEntity<User>(user, HttpStatus.OK);
+			if (returnUser != null) {
+				UserDto userDto = new UserDto(returnUser);
+				return ResponseEntity.ok(userDto);
 			} else {
-				entity = new ResponseEntity<User>(user, HttpStatus.SERVICE_UNAVAILABLE);
+				return ResponseEntity.badRequest().body(null);
 			}
-		} else {
-			entity = new ResponseEntity<User>(user, HttpStatus.BAD_REQUEST);
+
 		}
-		return entity;
 	}
 
-	// 管理使用者
-	// 查
-	@GetMapping("/users")
-	public ResponseEntity<List<User>> getAllUsers() {
-		List<User> users = service.getAllUser();
-		ResponseEntity<List<User>> entity;
-		if (users.size() > 0) {
-			entity = new ResponseEntity<List<User>>(users, HttpStatus.OK);
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful operation", content = {
+			@Content(schema = @Schema(implementation = UserDto.class), mediaType = "application/json") }) })
+	@GetMapping("/public/user/{email}")
+	public ResponseEntity<UserDto> getUserByUserEmail(@PathVariable String email) {
+
+		// Extract user ID from JWT
+		String authenticatedUserEmail = ((UserInfoConfig) SecurityContextHolder.getContext().getAuthentication()
+				.getPrincipal()).getEmail();
+
+		if (!authenticatedUserEmail.equals(email)) {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
 		} else {
-			entity = new ResponseEntity<List<User>>(users, HttpStatus.BAD_REQUEST);
+			User returnUser = userService.getUserByEmail(authenticatedUserEmail);
+
+			if (returnUser != null) {
+				UserDto userDto = new UserDto(returnUser);
+				return ResponseEntity.ok(userDto);
+			} else {
+				return ResponseEntity.badRequest().body(null);
+			}
+
 		}
-		return entity;
 	}
 
-	// 管理使用者
-	// 刪
-	@DeleteMapping("/user/{userId}")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful operation", content = {
+			@Content(schema = @Schema(implementation = UserDto.class), mediaType = "application/json") }) })
+	@PutMapping("/public/user/{userId}")
+	public ResponseEntity<UserDto> updateUserById(@PathVariable Long userId, @RequestBody User user) {
+
+		// Extract user ID from JWT
+		String authenticatedUserEmail = ((UserInfoConfig) SecurityContextHolder.getContext().getAuthentication()
+				.getPrincipal()).getEmail();
+
+		User authenticated = userService.getUserByEmail(authenticatedUserEmail);
+
+		if (!authenticated.getUserId().equals(userId)) {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+		} else {
+			User returnUser = userService.getUserById(userId);
+
+			if (returnUser != null) {
+				user.setUserId(returnUser.getUserId());
+				Boolean isUpdate = userService.updateUserById(user.getUserId(), user);
+
+				if (isUpdate) {
+					UserDto userDto = new UserDto(user);
+					return ResponseEntity.ok(userDto);
+				} else {
+					return ResponseEntity.internalServerError().body(null);
+				}
+
+			} else {
+				return ResponseEntity.badRequest().body(null);
+			}
+
+		}
+	}
+
+	@Operation(summary = "Retrieve all users", description = "Get a list of all users. The response is a list of UserDto objects.")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Successful operation", content = {
+					@Content(schema = @Schema(implementation = UserDto.class), mediaType = "application/json") }),
+			@ApiResponse(responseCode = "204", description = "No users found", content = {
+					@Content(schema = @Schema()) }),
+			@ApiResponse(responseCode = "500", description = "Internal server error", content = {
+					@Content(schema = @Schema()) }) })
+	@GetMapping("/admin/users")
+	public ResponseEntity<List<UserDto>> getAllUsers() {
+		List<User> users = userService.getAllUser();
+		List<UserDto> userDtos = users.stream().map(UserDto::new).collect(Collectors.toList());
+
+		if (users.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+		} else {
+			return ResponseEntity.ok().body(userDtos);
+		}
+	}
+
+	@DeleteMapping("/admin/user/{userId}")
 	public ResponseEntity<User> deleteUserById(@PathVariable Long userId) {
 		ResponseEntity<User> entity;
-		User user = service.getUserById(userId);
+		User user = userService.getUserById(userId);
 		if (user != null) {
-			service.deleteUserById(userId);
+			userService.deleteUserById(userId);
 			entity = new ResponseEntity<User>(user, HttpStatus.OK);
 		} else {
 			entity = new ResponseEntity<User>(user, HttpStatus.NOT_FOUND);
