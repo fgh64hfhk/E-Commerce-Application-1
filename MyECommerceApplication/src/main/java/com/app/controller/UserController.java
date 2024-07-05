@@ -67,17 +67,18 @@ public class UserController {
 
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful operation", content = {
 			@Content(schema = @Schema(implementation = UserDto.class), mediaType = "application/json") }) })
-	@GetMapping("/public/user/{email}")
+	@GetMapping("/public/user/email/{email}")
 	public ResponseEntity<UserDto> getUserByUserEmail(@PathVariable String email) {
 
 		// Extract user ID from JWT
-		String authenticatedUserEmail = ((UserInfoConfig) SecurityContextHolder.getContext().getAuthentication()
-				.getPrincipal()).getEmail();
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		System.out.println(principal);
 
-		if (!authenticatedUserEmail.equals(email)) {
+		if (!principal.equals(email)) {
+			System.out.println("!authenticatedUserEmail.equals(email)");
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
 		} else {
-			User returnUser = userService.getUserByEmail(authenticatedUserEmail);
+			User returnUser = userService.getUserByEmail((String)principal);
 
 			if (returnUser != null) {
 				UserDto userDto = new UserDto(returnUser);
@@ -85,8 +86,27 @@ public class UserController {
 			} else {
 				return ResponseEntity.badRequest().body(null);
 			}
-
 		}
+		
+//		if (principal instanceof UserInfoConfig) {
+//			String authenticatedUserEmail = ((UserInfoConfig) principal).getEmail();
+//			if (!authenticatedUserEmail.equals(email)) {
+//				System.out.println("!authenticatedUserEmail.equals(email)");
+//				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+//			} else {
+//				User returnUser = userService.getUserByEmail(authenticatedUserEmail);
+//
+//				if (returnUser != null) {
+//					UserDto userDto = new UserDto(returnUser);
+//					return ResponseEntity.ok(userDto);
+//				} else {
+//					return ResponseEntity.badRequest().body(null);
+//				}
+//			}
+//		} else {
+//			System.out.println("!principal instanceof UserInfoConfig");
+//			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+//		}
 	}
 
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful operation", content = {

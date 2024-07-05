@@ -68,8 +68,8 @@ public class SecurityConfig {
 			.csrf(csrf -> csrf.disable()) // 禁用CSRF（跨站請求偽造）保護
 			.authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
 					.requestMatchers(AppConstants.PUBLIC_URLS).permitAll() // 允許對首頁，登入頁面和靜態資源（如CSS、JS、圖片）的訪問，無需認證
-					.requestMatchers(AppConstants.USER_URLS).hasAnyAuthority("USER", "ADMIN") // 只有管理員角色可以訪問
-					.requestMatchers(AppConstants.ADMIN_URLS).hasAuthority("ADMIN") // 使用者和管理員角色可以訪問的資源
+					.requestMatchers(AppConstants.USER_URLS).hasAnyAuthority("USER", "ADMIN") // 使用者和管理員角色可以訪問的資源
+					.requestMatchers(AppConstants.ADMIN_URLS).hasAuthority("ADMIN") // 只有管理員角色可以訪問
 					.anyRequest().authenticated()) // 要求所有其他請求都必須經過認證
 			.formLogin(form -> form
 					// TODO

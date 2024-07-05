@@ -68,6 +68,10 @@ public class AuthController {
 				return new ResponseEntity<>(Collections.singletonMap("Error-Message", "Invalid role specified"),
 						HttpStatus.BAD_REQUEST);
 			}
+			if (role.getRoleName().equalsIgnoreCase("admin")) {
+				Role user = roleRepository.findByRoleName("USER");
+				roles.add(user);
+			}
 			roles.add(role);
 
 			// 創建用戶實體
