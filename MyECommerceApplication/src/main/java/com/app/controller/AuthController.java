@@ -63,13 +63,15 @@ public class AuthController {
 
 			// 獲取角色並檢查其有效性
 			Set<Role> roles = new HashSet<>();
-			Role role = roleRepository.findByRoleName(userDto.getRole());
+			Role role = roleRepository.findByRoleName(userDto.getRole())
+					.orElseThrow(() -> new RuntimeException("Role not found in database."));
 			if (role == null) {
 				return new ResponseEntity<>(Collections.singletonMap("Error-Message", "Invalid role specified"),
 						HttpStatus.BAD_REQUEST);
 			}
 			if (role.getRoleName().equalsIgnoreCase("admin")) {
-				Role user = roleRepository.findByRoleName("USER");
+				Role user = roleRepository.findByRoleName("USER")
+						.orElseThrow(() -> new RuntimeException("Role ADMIN not found in database."));
 				roles.add(user);
 			}
 			roles.add(role);

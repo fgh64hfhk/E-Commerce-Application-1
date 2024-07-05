@@ -1,0 +1,931 @@
+[
+  {
+  "name": "M-DISTRICT WR A 連帽防潑水防摔外套 亞版",
+  "subcategory": "防摔衣",
+  "brand": "IXON",
+  "description": "無",
+  "price": "6780",
+  "productVariants": [
+    {
+       
+      "color": "戰術綠",
+      "size": "S",
+      "inventory": 10,
+      "sku": "M-DISTRICT-WR-A-戰術綠-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634a10a544c59001abd0f52/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "M",
+      "inventory": 10,
+      "sku": "M-DISTRICT-WR-A-戰術綠-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634a10a544c59001abd0f52/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "L",
+      "inventory": 10,
+      "sku": "M-DISTRICT-WR-A-戰術綠-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634a10a544c59001abd0f52/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "M-DISTRICT-WR-A-戰術綠-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634a10a544c59001abd0f52/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "M-DISTRICT-WR-A-戰術綠-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634a10a544c59001abd0f52/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑灰",
+      "size": "S",
+      "inventory": 10,
+      "sku": "M-DISTRICT-WR-A-黑灰-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634a10a15e43d001a97ef6e/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑灰",
+      "size": "M",
+      "inventory": 10,
+      "sku": "M-DISTRICT-WR-A-黑灰-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634a10a15e43d001a97ef6e/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑灰",
+      "size": "L",
+      "inventory": 10,
+      "sku": "M-DISTRICT-WR-A-黑灰-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634a10a15e43d001a97ef6e/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑灰",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "M-DISTRICT-WR-A-黑灰-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634a10a15e43d001a97ef6e/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑灰",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "M-DISTRICT-WR-A-黑灰-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634a10a15e43d001a97ef6e/800x.webp?source_format=jpg"
+    }
+  ]
+ },
+ {
+  "name": "M-PARK AIR A 連帽防摔外套 亞版",
+  "subcategory": "防摔衣",
+  "brand": "IXON",
+  "description": "無",
+  "price": "7980",
+  "productVariants": [
+    {
+       
+      "color": "墨綠黑",
+      "size": "S",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-墨綠黑-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902c695cba000eb05bec/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "墨綠黑",
+      "size": "M",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-墨綠黑-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902c695cba000eb05bec/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "墨綠黑",
+      "size": "L",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-墨綠黑-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902c695cba000eb05bec/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "墨綠黑",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-墨綠黑-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902c695cba000eb05bec/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "墨綠黑",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-墨綠黑-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902c695cba000eb05bec/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "砂黑",
+      "size": "S",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-砂黑-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902cba8ad3b354da43d5/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "砂黑",
+      "size": "M",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-砂黑-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902cba8ad3b354da43d5/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "砂黑",
+      "size": "L",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-砂黑-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902cba8ad3b354da43d5/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "砂黑",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-砂黑-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902cba8ad3b354da43d5/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "砂黑",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-砂黑-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902cba8ad3b354da43d5/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "S",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-白黑-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902c903fee0011c435bf/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "M",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-白黑-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902c903fee0011c435bf/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "L",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-白黑-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902c903fee0011c435bf/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-白黑-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902c903fee0011c435bf/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "M-PARK-AIR-白黑-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6634902c903fee0011c435bf/800x.webp?source_format=jpg"
+    }
+  ]
+ },
+ {
+  "name": "M-NEFTA AIR A 軟殼運動風格防摔外套 亞版",
+  "subcategory": "防摔衣",
+  "brand": "IXON",
+  "description": "無",
+  "price": "6780",
+  "productVariants": [
+    {
+       
+      "color": "黑墨綠",
+      "size": "S",
+      "inventory": 10,
+      "sku": "M-NEFTA-AIR-黑墨綠-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/663480352368680011f41656/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑墨綠",
+      "size": "M",
+      "inventory": 10,
+      "sku": "M-NEFTA-AIR-黑墨綠-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/663480352368680011f41656/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑墨綠",
+      "size": "L",
+      "inventory": 10,
+      "sku": "M-NEFTA-AIR-黑墨綠-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/663480352368680011f41656/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑墨綠",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "M-NEFTA-AIR-黑墨綠-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/663480352368680011f41656/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑墨綠",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "M-NEFTA-AIR-黑墨綠-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/663480352368680011f41656/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑藍",
+      "size": "S",
+      "inventory": 10,
+      "sku": "M-NEFTA-AIR-黑藍-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/66348035a2d221001fc282e3/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑藍",
+      "size": "M",
+      "inventory": 10,
+      "sku": "M-NEFTA-AIR-黑藍-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/66348035a2d221001fc282e3/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑藍",
+      "size": "L",
+      "inventory": 10,
+      "sku": "M-NEFTA-AIR-黑藍-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/66348035a2d221001fc282e3/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑藍",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "M-NEFTA-AIR-黑藍-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/66348035a2d221001fc282e3/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑藍",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "M-NEFTA-AIR-黑藍-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/66348035a2d221001fc282e3/800x.webp?source_format=jpg"
+    }
+  ]
+ },
+ {
+  "name": "UNDERGROUND 防滑衣  防滑褲 黑白",
+  "subcategory": "防摔衣",
+  "brand": "IXON",
+  "description": "無",
+  "price": "2280",
+  "productVariants": [
+    {
+       
+      "color": "防滑衣 ",
+      "size": "XS/S",
+      "inventory": 10,
+      "sku": "UNDERGROUND-防滑衣 -XS/S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6548aab0904f240017d18958/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "防滑衣 ",
+      "size": "M/L",
+      "inventory": 10,
+      "sku": "UNDERGROUND-防滑衣 -M/L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6548aab0904f240017d18958/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "防滑衣 ",
+      "size": "XL/2XL",
+      "inventory": 10,
+      "sku": "UNDERGROUND-防滑衣 -XL/2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6548aab0904f240017d18958/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "防滑褲",
+      "size": "XS/S",
+      "inventory": 10,
+      "sku": "UNDERGROUND-防滑褲-XS/S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6548aab06181ae0011ba4153/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "防滑褲",
+      "size": "M/L",
+      "inventory": 10,
+      "sku": "UNDERGROUND-防滑褲-M/L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6548aab06181ae0011ba4153/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "防滑褲",
+      "size": "XL/2XL",
+      "inventory": 10,
+      "sku": "UNDERGROUND-防滑褲-XL/2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6548aab06181ae0011ba4153/800x.webp?source_format=jpg"
+    }
+  ]
+ },
+ {
+  "name": "JACKAL 連身皮衣 一件式安全帽 入門款 競技防摔衣",
+  "subcategory": "防摔衣",
+  "brand": "IXON",
+  "description": "IXON的入門款連身皮衣 採用尖端技術並配備先進材料，為您提供優秀性能與舒適性 附贈膝蓋與肘部滑塊",
+  "price": "28800",
+  "productVariants": [
+    {
+       
+      "color": "黑",
+      "size": "S",
+      "inventory": 10,
+      "sku": "JACKAL-黑-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6418292815afd80020fb0871/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "M",
+      "inventory": 10,
+      "sku": "JACKAL-黑-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6418292815afd80020fb0871/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "L",
+      "inventory": 10,
+      "sku": "JACKAL-黑-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6418292815afd80020fb0871/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "JACKAL-黑-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6418292815afd80020fb0871/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "JACKAL-黑-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6418292815afd80020fb0871/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白紅",
+      "size": "S",
+      "inventory": 10,
+      "sku": "JACKAL-白紅-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64182929c32f9900142b6780/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白紅",
+      "size": "M",
+      "inventory": 10,
+      "sku": "JACKAL-白紅-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64182929c32f9900142b6780/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白紅",
+      "size": "L",
+      "inventory": 10,
+      "sku": "JACKAL-白紅-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64182929c32f9900142b6780/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白紅",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "JACKAL-白紅-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64182929c32f9900142b6780/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白紅",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "JACKAL-白紅-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64182929c32f9900142b6780/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "S",
+      "inventory": 10,
+      "sku": "JACKAL-白黑-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64182929cd2cf400173a2229/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "M",
+      "inventory": 10,
+      "sku": "JACKAL-白黑-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64182929cd2cf400173a2229/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "L",
+      "inventory": 10,
+      "sku": "JACKAL-白黑-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64182929cd2cf400173a2229/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "JACKAL-白黑-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64182929cd2cf400173a2229/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "JACKAL-白黑-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64182929cd2cf400173a2229/800x.webp?source_format=jpg"
+    }
+  ]
+ },
+ {
+  "name": "FIERCE A 夏季連帽網布外套 防摔衣 透氣 休閒 亞版",
+  "subcategory": "防摔衣",
+  "brand": "IXON",
+  "description": "採用超耐磨網布與彈性布混搭\n胸部與肩部的大型LOGO營造競技風格\n配備七件式安全帽護具",
+  "price": "8280",
+  "productVariants": [
+    {
+       
+      "color": "黑白紅",
+      "size": "M",
+      "inventory": 10,
+      "sku": "FIERCE-A-黑白紅-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6630888244eef100141cdd3e/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑白紅",
+      "size": "L",
+      "inventory": 10,
+      "sku": "FIERCE-A-黑白紅-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6630888244eef100141cdd3e/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑白紅",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "FIERCE-A-黑白紅-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6630888244eef100141cdd3e/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑白紅",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "FIERCE-A-黑白紅-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6630888244eef100141cdd3e/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "極致黑",
+      "size": "M",
+      "inventory": 10,
+      "sku": "FIERCE-A-極致黑-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/663088766f71e20023d8c691/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "極致黑",
+      "size": "L",
+      "inventory": 10,
+      "sku": "FIERCE-A-極致黑-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/663088766f71e20023d8c691/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "極致黑",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "FIERCE-A-極致黑-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/663088766f71e20023d8c691/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "極致黑",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "FIERCE-A-極致黑-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/663088766f71e20023d8c691/800x.webp?source_format=jpg"
+    }
+  ]
+ },
+ {
+  "name": "SIWA AIR A 夏季網布防摔外套 亞版",
+  "subcategory": "防摔衣",
+  "brand": "IXON",
+  "description": "輕量化超柔軟設計\n運動騎乘與通勤休閒都能兼顧的泛用款式安全帽",
+  "price": "5580",
+  "productVariants": [
+    {
+       
+      "color": "黑紅",
+      "size": "M",
+      "inventory": 10,
+      "sku": "SIWA-AIR-黑紅-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64017a4596caf80023d16588/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑紅",
+      "size": "L",
+      "inventory": 10,
+      "sku": "SIWA-AIR-黑紅-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64017a4596caf80023d16588/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑紅",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "SIWA-AIR-黑紅-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64017a4596caf80023d16588/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑紅",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "SIWA-AIR-黑紅-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64017a4596caf80023d16588/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "M",
+      "inventory": 10,
+      "sku": "SIWA-AIR-黑-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64017a459392c10023ff57f3/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "L",
+      "inventory": 10,
+      "sku": "SIWA-AIR-黑-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64017a459392c10023ff57f3/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "SIWA-AIR-黑-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64017a459392c10023ff57f3/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "SIWA-AIR-黑-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64017a459392c10023ff57f3/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "M",
+      "inventory": 10,
+      "sku": "SIWA-AIR-白黑-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6401c6f028a3e3001783de2b/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "L",
+      "inventory": 10,
+      "sku": "SIWA-AIR-白黑-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6401c6f028a3e3001783de2b/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "SIWA-AIR-白黑-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6401c6f028a3e3001783de2b/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "白黑",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "SIWA-AIR-白黑-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/6401c6f028a3e3001783de2b/800x.webp?source_format=jpg"
+    }
+  ]
+ },
+ {
+  "name": "FRESH A 夏季網布外套 亞版",
+  "subcategory": "防摔衣",
+  "brand": "IXON",
+  "description": "最大化透氣性、舒適性和安全性\n讓你能享受炎夏的騎乘\n此為亞洲版型",
+  "price": "6980",
+  "productVariants": [
+    {
+       
+      "color": "黑",
+      "size": "S",
+      "inventory": 10,
+      "sku": "FRESH-A-黑-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f189fef15b708a6272b7/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "M",
+      "inventory": 10,
+      "sku": "FRESH-A-黑-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f189fef15b708a6272b7/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "L",
+      "inventory": 10,
+      "sku": "FRESH-A-黑-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f189fef15b708a6272b7/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "FRESH-A-黑-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f189fef15b708a6272b7/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "FRESH-A-黑-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f189fef15b708a6272b7/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "深藍",
+      "size": "S",
+      "inventory": 10,
+      "sku": "FRESH-A-深藍-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f18a09d2a7002324b7c7/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "深藍",
+      "size": "M",
+      "inventory": 10,
+      "sku": "FRESH-A-深藍-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f18a09d2a7002324b7c7/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "深藍",
+      "size": "L",
+      "inventory": 10,
+      "sku": "FRESH-A-深藍-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f18a09d2a7002324b7c7/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "深藍",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "FRESH-A-深藍-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f18a09d2a7002324b7c7/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "深藍",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "FRESH-A-深藍-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f18a09d2a7002324b7c7/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "S",
+      "inventory": 10,
+      "sku": "FRESH-A-戰術綠-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f18a0fd78c4871803961/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "M",
+      "inventory": 10,
+      "sku": "FRESH-A-戰術綠-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f18a0fd78c4871803961/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "L",
+      "inventory": 10,
+      "sku": "FRESH-A-戰術綠-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f18a0fd78c4871803961/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "FRESH-A-戰術綠-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f18a0fd78c4871803961/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "FRESH-A-戰術綠-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/63d8f18a0fd78c4871803961/800x.webp?source_format=jpg"
+    }
+  ]
+ },
+ {
+  "name": "BURNING AIR A 夏季連帽休閒外套 亞版",
+  "subcategory": "防摔衣",
+  "brand": "IXON",
+  "description": "為亞洲人設計的透氣款\n時尚的街頭風格外觀，適合都市騎乘",
+  "price": "7480",
+  "productVariants": [
+    {
+       
+      "color": "黑",
+      "size": "S",
+      "inventory": 10,
+      "sku": "BURNING-AIR-黑-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d068ca16400119763c2/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "M",
+      "inventory": 10,
+      "sku": "BURNING-AIR-黑-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d068ca16400119763c2/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "L",
+      "inventory": 10,
+      "sku": "BURNING-AIR-黑-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d068ca16400119763c2/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "BURNING-AIR-黑-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d068ca16400119763c2/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "黑",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "BURNING-AIR-黑-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d068ca16400119763c2/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "深藍",
+      "size": "S",
+      "inventory": 10,
+      "sku": "BURNING-AIR-深藍-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d058e16160011a95b85/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "深藍",
+      "size": "M",
+      "inventory": 10,
+      "sku": "BURNING-AIR-深藍-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d058e16160011a95b85/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "深藍",
+      "size": "L",
+      "inventory": 10,
+      "sku": "BURNING-AIR-深藍-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d058e16160011a95b85/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "深藍",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "BURNING-AIR-深藍-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d058e16160011a95b85/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "深藍",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "BURNING-AIR-深藍-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d058e16160011a95b85/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "S",
+      "inventory": 10,
+      "sku": "BURNING-AIR-戰術綠-S",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d06b07599001a67340b/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "M",
+      "inventory": 10,
+      "sku": "BURNING-AIR-戰術綠-M",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d06b07599001a67340b/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "L",
+      "inventory": 10,
+      "sku": "BURNING-AIR-戰術綠-L",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d06b07599001a67340b/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "XL",
+      "inventory": 10,
+      "sku": "BURNING-AIR-戰術綠-XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d06b07599001a67340b/800x.webp?source_format=jpg"
+    },
+    {
+       
+      "color": "戰術綠",
+      "size": "2XL",
+      "inventory": 10,
+      "sku": "BURNING-AIR-戰術綠-2XL",
+      "image": "https://shoplineimg.com/5be4227a02dd95000178fa71/64463d06b07599001a67340b/800x.webp?source_format=jpg"
+    }
+  ]
+ }
+] 

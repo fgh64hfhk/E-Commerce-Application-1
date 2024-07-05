@@ -56,7 +56,7 @@ public class Product {
 	@ToString.Exclude
 	private ProductCategory category;
 
-	@OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST, orphanRemoval = true)
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonManagedReference
 	@ToString.Exclude
 	private List<ProductVariant> productVariants = new ArrayList<>();

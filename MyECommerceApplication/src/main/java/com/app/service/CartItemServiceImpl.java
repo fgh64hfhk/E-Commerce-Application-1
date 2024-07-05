@@ -144,6 +144,7 @@ public class CartItemServiceImpl implements CartItemService {
 
 	@Override
 	public List<CartItemDto> deleteCartItemBySkuAndUserEmail(String sku, String userEmail) {
+		
 		// 检查user对象是否为null
 		User user = userRepository.findByEmail(userEmail).get();
 		if (user == null) {

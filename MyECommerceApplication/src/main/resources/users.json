@@ -1,0 +1,27 @@
+[
+	{
+		"username": "aaaaaa",
+		"mobileNumber": "0912121212",
+		"email": "test123@gmail.com",
+		"password": "123123",
+		"roles": [
+			{
+				"roleName": "USER"
+			}
+		]
+	},
+	{
+		"username": "Tony Lin",
+		"mobileNumber": "0912883578",
+		"email": "bear200806@gmail.com",
+		"password": "password",
+		"roles": [
+			{
+				"roleName": "ADMIN"
+			},
+			{
+				"roleName": "USER"
+			}
+		]
+	}
+]
