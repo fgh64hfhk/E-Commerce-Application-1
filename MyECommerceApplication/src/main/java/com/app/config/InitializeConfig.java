@@ -3,6 +3,7 @@ package com.app.config;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 
 import com.app.entities.ProductCategory;
 import com.app.entities.Role;
@@ -13,6 +14,7 @@ import com.app.repositories.RoleRepository;
 public class InitializeConfig {
 
 	@Bean
+	@Order(1)
 	CommandLineRunner initDatabase(CategoryRepository categoryRepository, RoleRepository roleRepository) {
 		return args -> {
 			if (categoryRepository.count() == 0) {
