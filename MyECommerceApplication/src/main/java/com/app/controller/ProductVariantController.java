@@ -1,11 +1,15 @@
 package com.app.controller;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,15 +17,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.app.entities.ProductVariant;
 import com.app.payloads.ProductVariantDto;
+import com.app.service.FileService;
 import com.app.service.ProductVariantService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -34,17 +41,22 @@ public class ProductVariantController {
 	@Autowired
 	private ProductVariantService productVariantService;
 
+	@Autowired
+	private FileService fileService;
+
+	@Value("${project.image}")
+	private String path;
+
 	// 增 --> 根據商品編號新增商品變體
 	@PostMapping(path = "/admin/product/{productId}/variant", consumes = { "multipart/form-data" })
-	public ResponseEntity<ProductVariantDto> createProductVariantByProductId(
-			@PathVariable Long productId,
+	public ResponseEntity<ProductVariantDto> createProductVariantByProductId(@PathVariable Long productId,
 			@Valid @RequestParam("variant") ProductVariantDto productVariantDto,
 			@RequestParam(value = "image", required = false) MultipartFile file) {
 
 		ResponseEntity<ProductVariantDto> entity;
-		
+
 		ProductVariant productVariant = new ProductVariant(productVariantDto);
-		
+
 		Boolean isCreate = productVariantService.addProductVariantByProductId(productId, productVariant, file);
 
 		if (isCreate) {
@@ -56,18 +68,16 @@ public class ProductVariantController {
 	}
 
 	// 增 --> 根據商品編號新增商品變體列表
-	@PostMapping(path = "/admin/product/{productId}/variants", consumes = { "multipart/form-data" })
-	public ResponseEntity<List<ProductVariantDto>> createProductVariantsByProductId(
-			@PathVariable Long productId,
+	@PostMapping(path = "/admin/product/{productId}/variants", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+	public ResponseEntity<List<ProductVariantDto>> createProductVariantsByProductId(@PathVariable Long productId,
 			@Valid @RequestParam("variants") List<ProductVariantDto> productVariantDtos,
 			@RequestParam(value = "images", required = false) List<MultipartFile> files) {
 
 		ResponseEntity<List<ProductVariantDto>> entity;
-		
-		List<ProductVariant> productVariants = productVariantDtos.stream()
-				.map(t -> new ProductVariant(t))
+
+		List<ProductVariant> productVariants = productVariantDtos.stream().map(t -> new ProductVariant(t))
 				.collect(Collectors.toList());
-		
+
 		Boolean isCreate = productVariantService.addProductVariantsByProductId(productId, productVariants, files);
 
 		if (isCreate) {
@@ -94,27 +104,43 @@ public class ProductVariantController {
 		return entity;
 	}
 
-	// 更新
-	@PutMapping(value = "/admin/product/variant/{sku}", consumes = { "multipart/form-data" })
-	public ResponseEntity<ProductVariantDto> updateProductVariantBySku(
-			@PathVariable String sku,
-			@Valid @RequestParam("variant") ProductVariantDto productVariantDto,
-			@RequestParam(value = "image", required = false) MultipartFile file) {
+	@PutMapping(value = "/admin/product/variant/{sku}", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+	public ResponseEntity<ProductVariantDto> updateProductVariantBySku(@PathVariable String sku,
+			@RequestPart(name = "variant", required = true) ProductVariantDto productVariantDto,
+			@RequestPart(name = "image", required = false) MultipartFile file) {
 
 		ResponseEntity<ProductVariantDto> entity;
-		
-		ProductVariant productVariant = new ProductVariant(productVariantDto);
 
-		ProductVariant updatedProductVariant = productVariantService.updateProductVariantBySku(sku, productVariant, file);
-		
-		ProductVariantDto updatedProductVariantDto = new ProductVariantDto(updatedProductVariant);
+		try {
+			if (file != null && !file.isEmpty()) {
+	            String fileName = fileService.uploadImage(path, file);
+	            InputStream in = fileService.getResource(path, fileName);
+	            System.out.println(in);
+	        }
+			
+			System.out.println("controller: " + productVariantDto);
 
-		if (updatedProductVariant != null) {
-			entity = new ResponseEntity<>(updatedProductVariantDto, HttpStatus.CREATED);
-		} else {
-			entity = new ResponseEntity<>(updatedProductVariantDto, HttpStatus.BAD_REQUEST);
+			ProductVariant productVariant = new ProductVariant(productVariantDto);
+			
+			System.out.println("controller: " + productVariant);
+
+			ProductVariant updatedProductVariant = productVariantService.updateProductVariantBySku(sku, productVariant,
+					file);
+
+			ProductVariantDto updatedProductVariantDto = new ProductVariantDto(updatedProductVariant);
+
+			if (updatedProductVariant != null) {
+				entity = new ResponseEntity<>(updatedProductVariantDto, HttpStatus.CREATED);
+			} else {
+				entity = new ResponseEntity<>(updatedProductVariantDto, HttpStatus.BAD_REQUEST);
+			}
+			return entity;
+		} catch (IOException e) {
+
+			e.printStackTrace();
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		return entity;
+
 	}
 
 	// 查詢所有變體

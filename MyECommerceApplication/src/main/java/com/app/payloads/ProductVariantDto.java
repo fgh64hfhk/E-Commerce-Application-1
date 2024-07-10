@@ -22,14 +22,14 @@ public class ProductVariantDto {
 
 	private Integer inventory;
 
-	private Map<String, String> image;
+	private Map<String, String> images;
 
 	public ProductVariantDto(ProductVariant productVariant) {
 		this.color = productVariant.getColor();
 		this.size = productVariant.getSize();
 		this.sku = productVariant.getSku();
 		this.inventory = productVariant.getInventory();
-		this.image = translateBase642ImageMap(productVariant.getImage());
+		this.images = translateBase642ImageMap(productVariant.getImage());
 	}
 
 	private Map<String, String> translateBase642ImageMap(String image) {

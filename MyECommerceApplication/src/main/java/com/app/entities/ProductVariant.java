@@ -1,10 +1,12 @@
 package com.app.entities;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import com.app.payloads.ProductVariantDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -15,6 +17,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -55,19 +58,27 @@ public class ProductVariant {
 	@ToString.Exclude
 	private Product product;
 	
+	@OneToMany(mappedBy = "productVariant", cascade = CascadeType.ALL)
+	@JsonManagedReference
+    private List<CartItem> cartItems;
+	
 	public ProductVariant(ProductVariantDto productVariantDto) {
 		this.color = productVariantDto.getColor();
 		this.size = productVariantDto.getSize();
 		this.sku = productVariantDto.getSku();
 		this.inventory = productVariantDto.getInventory();
-		this.image = analysImageString(productVariantDto.getImage());
+		this.image = analysImageString(productVariantDto.getImages());
 	}
 	
 	private String analysImageString(Map<String, String> image) {
-		Set<String> keys = image.keySet();
-		if (keys.contains("normal type")) {
-			return new String(image.get("normal type"));
+		if (image == null) {
+			return "default_image";
+		} else {
+			Set<String> keys = image.keySet();
+			if (keys.contains("normal type")) {
+				return new String(image.get("normal type"));
+			}
+			return "default_image";
 		}
-		return "default_image";
 	}
 }

@@ -79,15 +79,15 @@ public class UserServiceImpl implements UserService {
 		product.setPrice(550.0);
 
 		List<ProductVariant> productVariants = new ArrayList<>();
-		ProductVariant productVariant = new ProductVariant(1L, "白", "M", "001-白-M", 50, "image001", product);
+		ProductVariant productVariant = new ProductVariant(1L, "白", "M", "001-白-M", 50, "image001", product, null);
 		productVariants.add(productVariant);
 		CartItem cartItem = new CartItem(cart, productVariant, 5);
 
-		ProductVariant productVariant2 = new ProductVariant(2L, "白", "L", "001-白-L", 50, "image002", product);
+		ProductVariant productVariant2 = new ProductVariant(2L, "白", "L", "001-白-L", 50, "image002", product, null);
 		productVariants.add(productVariant2);
 		CartItem cartItem2 = new CartItem(cart, productVariant2, 10);
 
-		ProductVariant productVariant3 = new ProductVariant(3L, "白", "XL", "001-白-XL", 50, "image003", product);
+		ProductVariant productVariant3 = new ProductVariant(3L, "白", "XL", "001-白-XL", 50, "image003", product, null);
 		productVariants.add(productVariant3);
 		CartItem cartItem3 = new CartItem(cart, productVariant3, 15);
 

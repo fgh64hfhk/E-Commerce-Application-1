@@ -57,7 +57,11 @@ public class ProductVariantServiceImpl implements ProductVariantService {
 	}
 
 	@Override
-	public ProductVariant updateProductVariantBySku(String sku, ProductVariant productVariant, MultipartFile file) {
+	public ProductVariant updateProductVariantBySku(String sku, ProductVariant productVariant, MultipartFile file) throws IOException {
+		
+		if (file.isEmpty()) {
+            throw new IOException("Uploaded file is empty");
+        }
 
 		// 根據商品變體的識別碼查找該商品變體
 		ProductVariant getProductVariant = productVariantRepository.findBySku(sku);
@@ -67,6 +71,8 @@ public class ProductVariantServiceImpl implements ProductVariantService {
 		}
 
 		Product getProduct = getProductVariant.getProduct();
+		
+		System.out.println(productVariant);
 
 		// 只允許修改庫存數量與更換圖片，因為如果修改顏色或者尺寸表示該變體的識別碼將無效，視為修改其他的變體
 		// 檢查是否違反規則
@@ -74,6 +80,7 @@ public class ProductVariantServiceImpl implements ProductVariantService {
 			System.out.println("識別碼不相同，請確認是否修改此變體");
 			return null;
 		} else if (!getProductVariant.getColor().equals(productVariant.getColor())) {
+			System.out.println(getProductVariant.getColor() + "____" + productVariant.getColor());
 			System.out.println("不可修改顏色，請使用正確的識別碼查找");
 			return null;
 		} else if (!getProductVariant.getSize().equals(productVariant.getSize())) {

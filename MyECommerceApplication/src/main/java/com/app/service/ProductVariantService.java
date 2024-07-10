@@ -1,5 +1,6 @@
 package com.app.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
@@ -20,7 +21,7 @@ public interface ProductVariantService {
 	ProductVariant deleteProductVariantBySku(String sku);
 
 	// 根據商品變體的識別碼修改商品變體
-	ProductVariant updateProductVariantBySku(String sku, ProductVariant productVariant, MultipartFile file);
+	ProductVariant updateProductVariantBySku(String sku, ProductVariant productVariant, MultipartFile file) throws IOException;
 
 	// 根據商品變體的識別碼修改商品變體的圖片
 

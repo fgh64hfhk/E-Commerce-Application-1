@@ -21,6 +21,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "carts")
@@ -37,6 +38,7 @@ public class Cart {
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	@JsonBackReference
+	@ToString.Exclude
 	private User user;
 
 	@OneToMany(mappedBy = "cart")
