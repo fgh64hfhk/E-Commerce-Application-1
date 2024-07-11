@@ -72,41 +72,27 @@ public class UserController {
 
 		// Extract user ID from JWT
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//		System.out.println(principal);
+		System.out.println(principal);
 
-		if (!principal.equals(email)) {
-			System.out.println("!authenticatedUserEmail.equals(email)");
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-		} else {
-			User returnUser = userService.getUserByEmail((String)principal);
-
-			if (returnUser != null) {
-				UserDto userDto = new UserDto(returnUser);
-				return ResponseEntity.ok(userDto);
+		if (principal instanceof UserInfoConfig) {
+			String authenticatedUserEmail = ((UserInfoConfig) principal).getEmail();
+			if (!authenticatedUserEmail.equals(email)) {
+				System.out.println("!authenticatedUserEmail.equals(email)");
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
 			} else {
-				return ResponseEntity.badRequest().body(null);
+				User returnUser = userService.getUserByEmail(authenticatedUserEmail);
+
+				if (returnUser != null) {
+					UserDto userDto = new UserDto(returnUser);
+					return ResponseEntity.ok(userDto);
+				} else {
+					return ResponseEntity.badRequest().body(null);
+				}
 			}
+		} else {
+			System.out.println("!principal instanceof UserInfoConfig");
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
 		}
-		
-//		if (principal instanceof UserInfoConfig) {
-//			String authenticatedUserEmail = ((UserInfoConfig) principal).getEmail();
-//			if (!authenticatedUserEmail.equals(email)) {
-//				System.out.println("!authenticatedUserEmail.equals(email)");
-//				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-//			} else {
-//				User returnUser = userService.getUserByEmail(authenticatedUserEmail);
-//
-//				if (returnUser != null) {
-//					UserDto userDto = new UserDto(returnUser);
-//					return ResponseEntity.ok(userDto);
-//				} else {
-//					return ResponseEntity.badRequest().body(null);
-//				}
-//			}
-//		} else {
-//			System.out.println("!principal instanceof UserInfoConfig");
-//			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-//		}
 	}
 
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful operation", content = {
